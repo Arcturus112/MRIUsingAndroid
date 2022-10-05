@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Arcturus</string>
+    <string name="top_250_movies">Top 250 Movies</string>
+    <string name="rating">Rating :</string>
 </resources>

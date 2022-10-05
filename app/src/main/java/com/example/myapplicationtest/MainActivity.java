@@ -6,13 +6,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
-import android.widget.Adapter;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,7 +18,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -28,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     List<topMovies> topMovies;
     private RequestQueue mQueue;
-    private static String URL = "https://imdb-api.com/en/API/Top250Movies/k_aaaaaaaa";
+    private static final String URL = "https://imdb-api.com/en/API/Top250Movies/k_g74y0py7";
     recyclerViewAdapter recyclerViewAdapter;
 
     @Override
@@ -62,12 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
                             topMovies.add(movies);
                         }
-                        Collections.sort(topMovies, new Comparator<topMovies>() {
-                            @Override
-                            public int compare(topMovies topMovies1, topMovies topMovies2) {
-                                return topMovies1.Year.compareToIgnoreCase(topMovies2.Year);
-                            }
-                        });
+                        topMovies.sort((topMovies1, topMovies2) -> topMovies1.Year.compareToIgnoreCase(topMovies2.Year));
                         Collections.reverse(topMovies);
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));

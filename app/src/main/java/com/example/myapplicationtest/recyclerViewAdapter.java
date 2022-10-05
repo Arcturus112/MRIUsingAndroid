@@ -47,7 +47,7 @@ public class recyclerViewAdapter extends RecyclerView.Adapter<recyclerViewAdapte
         return topMovies.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder{
+    public static class ViewHolder extends RecyclerView.ViewHolder{
         TextView movieTitle;
         ImageView movieImg;
         TextView movieYear;

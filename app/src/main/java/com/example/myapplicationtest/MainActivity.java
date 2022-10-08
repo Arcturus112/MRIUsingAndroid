@@ -56,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                             movies.setYear(data.getString("year"));
                             movies.setImage(data.getString("image"));
                             movies.setIMDbRating(data.getString("imDbRating"));
+                            movies.setId(data.getString("id"));
 
                             topMovies.add(movies);
                         }
@@ -64,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
 
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         recyclerViewAdapter = new recyclerViewAdapter(getApplicationContext(),topMovies);
-                        recyclerView.setLayoutManager(new GridLayoutManager(this,3));
+                        recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,3));
                         recyclerView.setAdapter(recyclerViewAdapter);
                     } catch (JSONException e) {
                         e.printStackTrace();

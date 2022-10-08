@@ -26,9 +26,7 @@ public class topMovies {
         IMDbRatingCount = iMDbRatingCount;
     }
 
-    public String getId() {
-        return Id;
-    }
+    public String getId() { return Id; }
 
     public void setId(String id) {
         Id = id;

@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                         topMovies.sort((topMovies1, topMovies2) -> topMovies1.Year.compareToIgnoreCase(topMovies2.Year));
                         Collections.reverse(topMovies);
 
+//                        topMovies.sort((topMovies1, topMovies2) -> topMovies1.Title.compareToIgnoreCase(topMovies2.Title));
+
                         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
                         recyclerViewAdapter = new recyclerViewAdapter(getApplicationContext(),topMovies);
                         recyclerView.setLayoutManager(new GridLayoutManager(MainActivity.this,3));

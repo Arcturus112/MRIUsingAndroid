@@ -3,12 +3,12 @@ package com.example.myapplicationtest;
 public class topMovies {
     private String Id;
     private String Rank;
-    private String Title;
+    public String Title;
     private String FullTitle;
     public String Year;
     private String Image;
     private String Crew;
-    private String IMDbRating;
+    public String IMDbRating;
     private String IMDbRatingCount;
 
     public topMovies(){

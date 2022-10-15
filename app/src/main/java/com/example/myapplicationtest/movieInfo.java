@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -15,6 +16,7 @@ import com.android.volley.toolbox.Volley;
 import com.squareup.picasso.Picasso;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 public class movieInfo extends AppCompatActivity {
     private RequestQueue mQueue;
@@ -38,13 +40,16 @@ public class movieInfo extends AppCompatActivity {
     private void jsonparseinfo(String url) {
         JsonObjectRequest request = new JsonObjectRequest(Request.Method.GET, url, null, response -> {
             try {
-                String movieInfo = response.getString("title");
+                JSONObject jsonObject = response.getJSONObject("plotShort");
+                String movieInfo = jsonObject.getString("plainText");
                 TextView txt_movie_info = findViewById(R.id.txt_movie_info);
+                txt_movie_info.setMovementMethod(new ScrollingMovementMethod());
                 txt_movie_info.append(movieInfo);
 
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+
         }, Throwable::printStackTrace);
         mQueue.add(request);
     }
